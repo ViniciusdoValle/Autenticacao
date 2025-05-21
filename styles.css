@@ -1,0 +1,166 @@
+body {
+    background-color: #111;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+form {
+    background-color: #1e1e1e;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="tel"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #555;
+    background-color: #222;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+
+
+button {
+    padding: 10px;
+    background-color: #28a745;
+    /* Verde */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+button:hover {
+    background-color: #1e7e34;
+}
+
+
+.password-container {
+    position: relative;
+    width: 100%;
+}
+
+.password-container input {
+    padding-right: 40px;
+}
+
+.password-container .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #aaa;
+    font-size: 16px;
+}
+
+
+.links {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.links a {
+    color: #4d8cff;
+    text-decoration: none;
+    margin: 0 8px;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
+input[type="password"]::-webkit-credentials-auto-fill-button {
+    visibility: hidden;
+    display: none !important;
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+}
+
+.links {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.links a {
+    color: #4d8cff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.links a:hover {
+    text-decoration: underline;
+}
+
+.links p {
+    margin: 5px 0;
+}
+
+/* Placeholder branco para navegadores modernos */
+::placeholder {
+    color: #fff;
+    opacity: 1;
+    /* Garante que a cor branca não fique translúcida */
+}
+
+/* Para navegadores WebKit (Chrome, Safari, etc.) */
+::-webkit-input-placeholder {
+    color: #fff;
+}
+
+/* Para Firefox */
+::-moz-placeholder {
+    color: #fff;
+}
+
+/* Para Internet Explorer 10-11 */
+:-ms-input-placeholder {
+    color: #fff;
+}
+
+/* Para Microsoft Edge */
+::-ms-input-placeholder {
+    color: #fff;
+}
