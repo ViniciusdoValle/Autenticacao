@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="container">
+        <form id="formCadastro" action="#" method="post" novalidate>
+            <h1>Cadastre-se</h1>
+            <input type="text" name="nome" placeholder="Nome completo" required />
+            <input type="date" name="dataNascimento" placeholder="Data de nascimento" required />
+            <input type="text" name="usuario" placeholder="Nome de usuário" required pattern="^[a-zA-Z0-9._]+$"
+                title="Use apenas letras, números, pontos ou underlines." />
+            <input type="email" name="email" placeholder="E-mail" required />
+            <input type="tel" name="telefone" placeholder="Telefone" required />
+
+            <div class="password-container">
+                <input type="password" name="senha" placeholder="Senha" id="senha" required />
+                <i class="fa-regular fa-eye-slash toggle-password" id="toggleSenha"></i>
+            </div>
+
+            <button type="submit">Criar Conta</button>
+
+            <div class="links">
+                <p><a href="index.html">Já tem uma conta? Entrar</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const toggleSenha = document.getElementById('toggleSenha');
+        const senhaInput = document.getElementById('senha');
+
+        toggleSenha.addEventListener('click', () => {
+            const isPassword = senhaInput.type === 'password';
+            senhaInput.type = isPassword ? 'text' : 'password';
+            toggleSenha.classList.toggle('fa-eye-slash');
+            toggleSenha.classList.toggle('fa-eye');
+        });
+
+        const form = document.getElementById('formCadastro');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            // Verifica se todos os campos estão válidos
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // Verifica a idade com base na data de nascimento
+            const dataNascimentoInput = document.querySelector('input[name="dataNascimento"]');
+            const dataNascimento = new Date(dataNascimentoInput.value);
+            const hoje = new Date();
+
+            let idade = hoje.getFullYear() - dataNascimento.getFullYear();
+            const mes = hoje.getMonth() - dataNascimento.getMonth();
+            if (mes < 0 || (mes === 0 && hoje.getDate() < dataNascimento.getDate())) {
+                idade--;
+            }
+
+            if (idade < 18) {
+                alert('Você precisa ter 18 anos ou mais para criar uma conta.');
+                return;
+            }
+
+            alert('Conta criada com sucesso!');
+            form.reset(); // limpa o formulário após o alert
+        });
+    </script>
+
+
+
+</body>
+
+</html>
