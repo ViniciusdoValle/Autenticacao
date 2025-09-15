@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Esqueceu a Senha</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="container">
+        <form id="formRecuperacao">
+            <h1>Recuperar a Senha</h1>
+            <p style="text-align: center; font-size: 14px;">Informe o seu e-mail para redefinir a sua senha.</p>
+
+            <input type="email" name="email" placeholder="E-mail" required />
+
+            <button type="submit">Enviar</button>
+
+            <div class="links">
+                <p><a href="index.html">Voltar para o login</a></p>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById('formRecuperacao');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita que a página recarregue
+            if (form.checkValidity()) {
+                alert('Enviamos um link de redefinição para o e-mail informado.');
+                form.reset(); // limpa o campo email depois do alerta
+            } else {
+                form.reportValidity(); // mostra mensagem padrão se estiver inválido
+            }
+        });
+    </script>
+</body>
+
+</html>
